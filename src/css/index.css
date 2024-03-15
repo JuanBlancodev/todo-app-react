@@ -56,6 +56,7 @@
   --width__form__downdrop_content__img: 40px;
   --width__form__member__avatar: 110px;
   --width__input__field: 300px;
+  --width__scrollbar: 5px;
 
   --height__card__tasks: 500px;
   --height__container_form: 350px;
@@ -98,6 +99,12 @@
   --bg-color__form__dropdown: #f9f9f9;
   --bg-color__dropdown_item__hover: #f1f1f1;
   --bg-color__btn__priority: #808080;
+  --bg-color__scrollbar-thumb: #ccc;
+  --bg-color__scrollbar-thumb_activate: #999;
+
+  --scrollbar-color: #888 #f1f1f1;
+
+  --scrollbar-thumb_hover: #555;
 
   --border__form__hr: none;
   --border__form__member__avatar: 3px solid #d4d2d2;
@@ -113,6 +120,7 @@
   --border-radius__circle: 50%;
   --border-radius__input__field: 7px;
   --border-radius__btn__priority: 10px;
+  --border-radius__scrollbar-thumb: 4px;
 
   --box-shadow__form__dropdown: 0px 4px 8px rgba(0, 0, 0, 0.1);
   --box-shadow__form_dropdown__content: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -332,4 +340,28 @@ ul li{
 
 .low{
   background-color: var(--color-priority-low) !important;
+}
+
+::-webkit-scrollbar {
+  width: var(--width__scrollbar);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-color__scrollbar-thumb);
+  border-radius: var(--border-radius__scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--bg-color__scrollbar-thumb_activate);
+}
+
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb_hover);
+  }
 }
