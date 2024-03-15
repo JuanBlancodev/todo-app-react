@@ -10,6 +10,9 @@
   --gap-5: 1rem;
   --gap-6: 1.2rem;
   --gap-7: 1.4rem;
+  --gap-8: 1.6rem;
+  --gap-9: 1.8rem;
+  --gap-10: 2rem;
 
   --button-padding: 7px 10px;
   --button-border: none;
@@ -95,7 +98,7 @@
   --bg-color__container__form: #ebebeb;
   --bg-color_header__form: #cfcdcd;
   --bg-color__header__form: #f3efef;
-  --bg-color__footer__form: #353333;
+  --bg-color__footer__form: #424242;
   --bg-color__form__dropdown: #f9f9f9;
   --bg-color__dropdown_item__hover: #f1f1f1;
   --bg-color__btn__priority: #808080;
@@ -237,6 +240,18 @@ main{
 
 .gap-7{
   gap: var(--gap-7);
+}
+
+.gap-8{
+  gap: var(--gap-8);
+}
+
+.gap-9{
+  gap: var(--gap-9);
+}
+
+.gap-10{
+  gap: var(--gap-10);
 }
 
 /* widht */
