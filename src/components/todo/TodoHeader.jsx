@@ -33,7 +33,7 @@ const HeaderContainer = () => {
       <button 
         id="btn__newTask" 
         className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold"
-        onClick={() => setFormState({...formState, visible: true})}>
+        onClick={() => setFormState({...formState, isVisible: true})}>
           <FontAwesomeIcon icon={faPlus} />
           Nueva tarea
       </button>

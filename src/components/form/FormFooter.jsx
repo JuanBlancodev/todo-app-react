@@ -8,7 +8,7 @@ const FormFooter = () => {
     <button 
       id="btn__cancel" 
       className="btn btn-secondary"
-      onClick={() => setFormState({...formState, visible: false})}>
+      onClick={() => setFormState({...formState, isVisible: false})}>
         Cancelar
     </button>
   </footer>

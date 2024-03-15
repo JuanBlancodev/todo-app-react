@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import useGlobalContext from '../../hooks/useGlobalContext'
 
 import FormHeader from './FormHeader'
@@ -9,7 +10,7 @@ import '../../css/Form.css'
 const FormContainer = () => {
   const { formState } = useGlobalContext()
 
-  return <section className={`container__form d-flex flex-column ${formState.visible ? 'visible' : ''}`}>
+  return <section className={classNames("container__form d-flex flex-column", { 'visible': formState.isVisible })}>
     <FormHeader />
     <Form />
     <FormFooter />

@@ -44,7 +44,7 @@
   --position__relative: relative;
   --position__absolute: absolute;
 
-  --left__form__dropdown__content: 0;
+  --left__form__dropdown__content: 5px;
 
   --top__form__dropdown__content: 45px;
 

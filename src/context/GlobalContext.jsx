@@ -5,7 +5,10 @@ const GlobalContext = createContext()
 
 const GlobalContextProvider = ({ children }) => {
   const [formState, setFormState] = useState({
-    visible: false
+    IsVisible: false,
+    dropDownIsVisible: false,
+    name: '',
+    priority: ''
   })
 
   return <GlobalContext.Provider value={{
