@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Header from './Header'
+import TodoHeader from './TodoHeader'
 import Card from './Card/Card'
 
 const Section = styled.section`
@@ -9,11 +9,11 @@ const Section = styled.section`
   box-sizing: border-box;
 `
 
-const ContainerTodo = () => {
+const TodoContainer = () => {
   return <Section className="container__todo">
-    <Header />
+    <TodoHeader />
     <Card />
   </Section>
 }
 
-export default ContainerTodo
+export default TodoContainer

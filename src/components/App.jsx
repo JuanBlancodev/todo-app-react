@@ -1,10 +1,10 @@
-import Container from './container/todo/Container'
+import TodoContainer from './container/todo/TodoContainer'
 
 import '../css/index.css'
 
 const App = () => {
   return <main className='d-flex flex-column align-center jusfity-center'>
-    <Container />
+    <TodoContainer />
   </main>
 }
 

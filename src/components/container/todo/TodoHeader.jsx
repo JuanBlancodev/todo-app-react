@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faListCheck, faPlus } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-const Header_ = styled.header`
+const Header = styled.header`
   padding: var(--padding__header);
   background-color: var(--bg-color__header);
   border-radius: var(--border-radius__container);
@@ -20,8 +20,8 @@ const HeaderIcon = styled(FontAwesomeIcon)`
   }
 `
 
-const Header = () => {
-  return <Header_ className="d-flex justify-between">
+const HeaderContainer = () => {
+  return <Header className="d-flex justify-between">
     <HeaderTitle className="d-flex align-center gap-3">
       <HeaderIcon icon={faListCheck} className='header-icon' />
       <h1>Lista de tareas</h1>
@@ -32,7 +32,7 @@ const Header = () => {
         Nueva tarea
       </button>
     </div>
-  </Header_>
+  </Header>
 }
 
-export default Header
+export default HeaderContainer

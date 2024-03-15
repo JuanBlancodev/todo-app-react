@@ -1,4 +1,4 @@
-const Header = () => {
+const CardHeader = () => {
   return <thead className="table__head">
     <tr className="table__row d-grid grid-column-4 text-center">
       <th className="table__header">Miembro</th>
@@ -9,4 +9,4 @@ const Header = () => {
   </thead>
 }
 
-export default Header
+export default CardHeader
