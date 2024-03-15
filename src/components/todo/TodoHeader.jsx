@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faListCheck, faPlus } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import useGlobalContext from '../../hooks/useGlobalContext'
 
 const Header = styled.header`
   padding: var(--padding__header);
@@ -21,15 +22,20 @@ const HeaderIcon = styled(FontAwesomeIcon)`
 `
 
 const HeaderContainer = () => {
+  const { formState, setFormState } = useGlobalContext()
+
   return <Header className="d-flex justify-between">
     <HeaderTitle className="d-flex align-center gap-3">
       <HeaderIcon icon={faListCheck} className='header-icon' />
       <h1>Lista de tareas</h1>
     </HeaderTitle>
     <div className="header__button d-flex align-center">
-      <button id="btn__newTask" className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold">
-        <FontAwesomeIcon icon={faPlus} />
-        Nueva tarea
+      <button 
+        id="btn__newTask" 
+        className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold"
+        onClick={() => setFormState({...formState, visible: true})}>
+          <FontAwesomeIcon icon={faPlus} />
+          Nueva tarea
       </button>
     </div>
   </Header>

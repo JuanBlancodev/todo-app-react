@@ -1,5 +1,5 @@
 .container__form{
-  /* display: none; */
+  display: none;
   position: absolute;
   width: var(--width__container__form);
   height: var(--height__container_form);
@@ -8,7 +8,7 @@
   background-color: var(--bg-color__container__form);
   font-family: "Oswald", sans-serif;
 
-  /* opacity: 0; */
+  opacity: 0;
   transition: opacity 0.25s;
 }
 
