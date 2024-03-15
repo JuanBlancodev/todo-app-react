@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons"
-import { URL_AVATAR, THUMBNAIL } from '../../../../config/cfg'
+import { URL_AVATAR, THUMBNAIL } from '../../../config/cfg'
 
 const priorities = [
   { class: 'low', text: 'Baja' },

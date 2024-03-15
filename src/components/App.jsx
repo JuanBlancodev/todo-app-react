@@ -1,5 +1,5 @@
-import TodoContainer from './container/todo/TodoContainer'
-import FormContainer from './container/form/FormContainer'
+import TodoContainer from './todo/TodoContainer'
+import FormContainer from './form/FormContainer'
 
 import '../css/index.css'
 

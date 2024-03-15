@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import TodoHeader from './TodoHeader'
 import Card from './Card/Card'
-import '../../../css/Todo.css'
+import '../../css/Todo.css'
 
 const Section = styled.section`
   width: var(--width__container);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { URL_AVATAR, THUMBNAIL } from '../../../../config/cfg.js'
+import { URL_AVATAR, THUMBNAIL } from '../../../config/cfg.js'
 
 const FormDropdown = () => {
   const [members, setMember] = useState([])

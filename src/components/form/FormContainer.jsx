@@ -1,7 +1,7 @@
 import FormHeader from './FormHeader'
 import Form from './Form'
 
-import '../../../css/Form.css'
+import '../../css/Form.css'
 
 const FormContainer = () => {
   return <section className="container__form d-flex flex-column">
