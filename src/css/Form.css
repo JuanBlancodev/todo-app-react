@@ -1,0 +1,171 @@
+.container__form{
+  /* display: none; */
+  position: absolute;
+  width: var(--width__container__form);
+  height: var(--height__container_form);
+  top: var(--top__container__form);
+  border-radius: var(--border-radius__container__form);
+  background-color: var(--bg-color__container__form);
+  font-family: "Oswald", sans-serif;
+
+  /* opacity: 0; */
+  transition: opacity 0.25s;
+}
+
+.container__form.visible{
+  opacity: 1;
+}
+
+.container__form .header__form{
+  padding: var(--padding__header__form);
+  text-align: center;
+  border-radius: var(--border-radius__header__form);
+  background-color: var(--bg-color__header__form);
+  border-bottom: var(--border-bottom__header__form);
+}
+
+.container__form .header__title{
+  margin: 0;
+  color: var(--color__header__title);
+  font-size: var(--font-size__header__title);
+}
+
+.container__form .footer__form{
+  background-color: var(--bg-color__footer__form);
+  height: var(--height__footer_form);
+  border-radius: var(--border-radius__footer__form);
+  padding: var(--padding__footer__form);
+}
+
+.container__form .footer__form .btn{
+  padding: var(--padding__footer__form-btn);
+  font-size: var(--font-size__footer__form-btn);
+  font-weight: var(--font-weight__footer__form-btn);
+  font-family: var(--font-family__oswald);
+}
+
+.container__form .form__section{
+  padding: var(--padding__form__section);
+}
+
+.container__form .form__section:first-child{
+  width: var(--width__form_section);
+}
+
+.container__form .form hr{
+  border: var(--border__form__hr);
+  border-left: var(--border-left__form__hr);
+  margin: var(--margin__form__hr);
+  width: var(--width__form__hr);
+}
+
+.container__form .form__dropdown {
+  width: var(--width__form__dropdown);
+  position: var(--position__from_dropdown);
+  display: var(--display__form_dropdown);
+  background-color: var(--bg-color__form__dropdown);
+  border-radius: var(--border-radius__form_dropdown);
+  padding: var(--padding__footer__form-btn);
+  box-shadow: var(--box-shadow__form__dropdown);
+  cursor: pointer;
+}
+
+.container__form .form__dropdown-btn {
+  background-color: var(--bg-color__transparent);
+  border: var(--border__form__hr);
+  cursor: pointer;
+  font-family: var(--font-family__oswald);
+}
+
+.container__form .form__dropdown-btn img{
+  width: var(--wdith__form_dropdown__btn__img);
+}
+
+.container__form .form__dropdown-content {
+  position: var(--position__absolute);
+  left: var(--left__form__dropdown__content);
+  top: var(--top__container__form);
+  width: var(--width__form_dropdown__content);
+  height: 0;
+  background-color: var(--bg-color__form__dropdown);
+  box-shadow: var(--box-shadow__form_dropdown__content);
+  border-radius: var(--border-radius__form_dropdown);
+  overflow-y: auto;
+  z-index: 1;
+  transition: height 0.35s ease;
+}
+
+.container__form .form__dropdown-content.visible{
+  height: var(--height__form__dropdown__content);
+}
+
+.container__form .form__dropdown-content .dropdown-item {
+  color: var(--color__from_dropdown__content__dropdown__item);
+  padding: var(--padding__form__dropdown__content__dropdown__item);
+  text-decoration: none;
+  margin-top: var(--margin-top__form__dropdown__content__dropdown__item);
+}
+
+.container__form .form__dropdown-content .dropdown-item:hover {
+  background-color: var(--bg-color__dropdown_item__hover);
+}
+
+.container__form .form__dropdown-content img{
+  width: var(--width__form__downdrop_content__img);
+}
+
+.container__form .form__member{
+  height: var(--height__form__member);
+  padding: var(--padding__form__member);
+}
+
+.container__form .form__member .avatar{
+  border: var(--border__form__member__avatar);
+  width: var(--width__form__member__avatar);
+  height: var(--height__form__member__avatar);
+  border-radius: var(--border-radius__circle);
+  overflow: hidden;
+}
+
+.container__form .form__member .avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container__form .form__member .member-name{
+  color: var(--color__from_dropdown__content__dropdown__item);
+}
+
+.container__form .form__section:last-child{
+  color: gray;
+  gap: 3rem;
+}
+
+.container__form .label{
+  font-style: italic;
+}
+
+.container__form .form__taskname .input-field{
+  width: var(--width__input__field);
+  padding: var(--padding__input__field);
+  font-family: var(--font-family__oswald);
+  outline: none;
+  border: none;
+  border-radius: var(--border-radius__input__field);
+}
+
+.container__form .form__taskname .input-field::placeholder{
+  font-style: italic;
+}
+
+.container__form .btn__priority{
+  padding: var(--padding__btn__priority);
+  background-color: var(--bg-color__btn__priority);
+  border-radius: var(--border-radius__btn__priority);
+  box-shadow: var(--box-shadow__btn_priority);
+  font-size: var(--font-size__btn__priority);
+  color: var(--color__btn__priorty); 
+  cursor: pointer;
+  transition: background-color 0.25s;
+}

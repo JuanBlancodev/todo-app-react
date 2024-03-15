@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { URL_AVATAR, THUMBNAIL } from '../../../../config/cfg'
 
 const priorities = [
   { class: 'low', text: 'Baja' },
@@ -11,7 +12,7 @@ const priorities = [
 const Task = ({ firstName, lastName, avatar, task, priority }) => {
   return <tr className="table__row d-grid grid-column-4 text-center align-center">
     <td className="table__cell d-flex align-center gap-3 font-bold">
-      <img src={`https://randomuser.me/api/portraits/thumb/${avatar}`} alt={`${firstName} ${lastName}`} className="img-circle" />
+      <img src={`${URL_AVATAR}${THUMBNAIL}${avatar}`} alt={`${firstName} ${lastName}`} className="img-circle" />
       <span className="table__cell--name font-size-1">{firstName} {lastName}</span>
     </td>
     <td className="table__cell">{ task }</td>

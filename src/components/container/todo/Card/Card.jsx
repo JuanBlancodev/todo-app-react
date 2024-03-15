@@ -1,6 +1,5 @@
 import CardHeader from "./CardHeader"
 import TaskList from './TaskList'
-import '../../../../css/container/todo/Card.css'
 
 const Card = () => {
   return <div className="card__tasks">
