@@ -121,8 +121,8 @@
   --font-family: "Roboto", sans-serif;
   --font-family__oswald: "Oswald", sans-serif;
 
-  --font__size-header__icon: 1.3rem;
-  --font__size-header__title: 0.7rem;
+  --font-size-header__icon: 1.3rem;
+  --font-size-header__title: 1rem;
   --font-size__header__title: 23px;
   --font-size__footer__form-btn: 13px;
   --font-size__btn__priority: 15px;
@@ -133,6 +133,17 @@
   --color__form_hr: #ccc;
   --color__from_dropdown__content__dropdown__item: black;
   --color__btn__priorty: #eeeded;
+}
+
+body{
+  color: var(--bg-color__body);
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  padding: var(--padding__main);
 }
 
 /* display */

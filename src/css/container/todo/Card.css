@@ -1,0 +1,33 @@
+.container__todo .card__tasks{
+  height: var(--height__card__tasks);
+  padding: var(--padding__card__tasks);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.container__todo .card__tasks .table{
+  height: var(--height__card__tasks);
+  overflow-y: auto;
+  font-family: var(--font-family__oswald);
+}
+
+.table table .table__head{
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color__header);
+}
+
+.table table .table__head .table__row{
+  padding: var(--padding__table__head);
+}
+
+.table table .table__body{
+  display: block;
+}
+
+.table table .table__body .table__row{
+  background-color: var(--bg-color__header);
+
+  margin-bottom: var(--margin-bottom__table__row);
+  padding: var(--padding__table__row);
+}

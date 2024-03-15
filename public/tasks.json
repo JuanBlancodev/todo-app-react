@@ -1,0 +1,58 @@
+[
+  {
+    "id" : 1,
+    "firstName" : "Clóvis",
+    "lastName" : "Ramos",
+    "avatar" : "men/73.jpg",
+    "task" : "Primera tarea",
+    "priority": 3
+  },
+  {
+    "id" : 2,
+    "firstName" : "Akshitha",
+    "lastName" : "Vernekar",
+    "avatar" : "women/56.jpg",
+    "task" : "Segunda tarea",
+    "priority": 1
+  },
+  {
+    "id" : 3,
+    "firstName" : "Martín",
+    "lastName" : "Castro",
+    "avatar" : "men/89.jpg",
+    "task" : "Tercera tarea",
+    "priority": 2
+  },
+  {
+    "id" : 4,
+    "firstName" : "Aino",
+    "lastName" : "Tuomala",
+    "avatar" : "women/51.jpg",
+    "task" : "Cuarta tarea",
+    "priority": 1
+  },
+  {
+    "id" : 5,
+    "firstName" : "Justine",
+    "lastName" : "Ennis",
+    "avatar" : "women/37.jpg",
+    "task" : "Quinta tarea",
+    "priority": 3
+  },
+  {
+    "id" : 6,
+    "firstName" : "Batur",
+    "lastName" : "Eronat",
+    "avatar" : "men/94.jpg",
+    "task" : "Sexta tarea",
+    "priority": 1
+  },
+  {
+    "id" : 7,
+    "firstName" : "Romain",
+    "lastName" : "Arnaud",
+    "avatar" : "men/62.jpg",
+    "task" : "Séptima tarea",
+    "priority": 2
+  }
+]
