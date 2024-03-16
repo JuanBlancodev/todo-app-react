@@ -22,7 +22,7 @@ const HeaderIcon = styled(FontAwesomeIcon)`
 `
 
 const HeaderContainer = () => {
-  const { formState, setFormState } = useGlobalContext()
+  const { setVisibleForm } = useGlobalContext()
 
   return <Header className="d-flex justify-between">
     <HeaderTitle className="d-flex align-center gap-3">
@@ -33,7 +33,7 @@ const HeaderContainer = () => {
       <button 
         id="btn__newTask" 
         className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold"
-        onClick={() => setFormState({...formState, isVisible: true})}>
+        onClick={() => setVisibleForm(true)}>
           <FontAwesomeIcon icon={faPlus} />
           Nueva tarea
       </button>

@@ -4,26 +4,34 @@ import PropTypes from 'prop-types'
 const GlobalContext = createContext()
 
 const initialValueForm = {
-  IsVisible: false,
-    dropDownIsVisible: false,
-    member: {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      avatar: ''
-    },
-    task: {
-      name: '',
-      priority: ''
-    }
+  isVisible: false,
+  displayed: false,
+  dropDownIsVisible: false,
+  member: {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    avatar: ''
+  },
+  task: {
+    name: '',
+    priority: ''
+  }
 }
 
 const GlobalContextProvider = ({ children }) => {
   const [formState, setFormState] = useState(initialValueForm)
   const [taskList, setTaskList] = useState([])
 
-  const cleanForm = () => {
-    setFormState(initialValueForm)
+  const setVisibleForm = (visible) => {
+    if(visible){
+      setFormState(prevState => ({...prevState, displayed: visible}))
+      setTimeout(() => setFormState(prevState => ({...prevState, isVisible: visible})), 10)
+    }
+    else{
+      setFormState(prevState => ({...prevState, isVisible: visible}))
+      setTimeout(() =>  setFormState(initialValueForm), 250)
+    }
   }
 
   const changeMemberData = (data) => {
@@ -63,14 +71,14 @@ const GlobalContextProvider = ({ children }) => {
     if(confirmState){
       const newTask = { member, task: { id: taskList.length + 1, ...task } }
       setTaskList([...taskList, newTask])
-      setFormState(initialValueForm)
+      setVisibleForm(false)
     }
   }
 
   return <GlobalContext.Provider value={{
     taskList, 
+    setVisibleForm,
     formState, setFormState,
-    cleanForm,
     changeMemberData,
     changeTaskData,
     addTaskToList,
