@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types'
+import { ITEM_LOCAL_STORAGE } from '../config/cfg'
 
 const GlobalContext = createContext()
 
@@ -22,6 +23,11 @@ const initialValueForm = {
 const GlobalContextProvider = ({ children }) => {
   const [formState, setFormState] = useState(initialValueForm)
   const [taskList, setTaskList] = useState([])
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem(ITEM_LOCAL_STORAGE)) || []
+    setTaskList(storedTasks)
+  }, [])
 
   const setVisibleForm = (visible) => {
     if(visible){
@@ -70,8 +76,11 @@ const GlobalContextProvider = ({ children }) => {
       Prioridad: ${traslatePriority(task.priority)}`)
     if(confirmState){
       const newTask = { member, task: { id: taskList.length + 1, ...task } }
-      setTaskList([...taskList, newTask])
+
+      const tasks = [...taskList, newTask]
+      setTaskList(tasks)
       setVisibleForm(false)
+      localStorage.setItem(ITEM_LOCAL_STORAGE, JSON.stringify(tasks))
     }
   }
 
