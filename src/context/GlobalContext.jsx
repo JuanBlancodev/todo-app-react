@@ -46,10 +46,26 @@ const GlobalContextProvider = ({ children }) => {
          Object.values(formState.task).every(val => val && val.length !== 0);
   }
 
+  const traslatePriority = (text) => {
+    const map = { 'low': 'Baja', 'medium': 'Media', 'high': 'Alta' }
+    return map[text];
+  }
+
   const addTaskToList = () => {
-    if(!checkTaskReady())
+    if(!checkTaskReady()){
       return console.log('Faltan campos por llenar')
-    console.log('tarea agregada')
+    }
+    const { member, task } = formState
+    const confirmState = confirm(`¿Estás seguro de agregar esta tarea a la lista?\n\
+      Miembro: ${member.firstName} ${member.lastName}\n\
+      Tarea: ${task.name}\n\
+      Prioridad: ${traslatePriority(task.priority)}`)
+    if(confirmState){
+      const newTask = { member, task: { id: taskList.length + 1, ...task } }
+      setTaskList([...taskList, newTask])
+      setFormState(initialValueForm)
+      alert('Tarea agregada')
+    }
   }
 
   return <GlobalContext.Provider value={{
