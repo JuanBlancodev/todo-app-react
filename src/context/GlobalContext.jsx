@@ -64,7 +64,6 @@ const GlobalContextProvider = ({ children }) => {
       const newTask = { member, task: { id: taskList.length + 1, ...task } }
       setTaskList([...taskList, newTask])
       setFormState(initialValueForm)
-      alert('Tarea agregada')
     }
   }
 
@@ -74,7 +73,8 @@ const GlobalContextProvider = ({ children }) => {
     cleanForm,
     changeMemberData,
     changeTaskData,
-    addTaskToList
+    addTaskToList,
+    traslatePriority
   }}>
     { children }
   </GlobalContext.Provider>

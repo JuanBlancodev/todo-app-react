@@ -1,31 +1,17 @@
-import { useEffect, useState } from "react"
+import useGlobalContext from '../../../hooks/useGlobalContext'
 import Task from "./Task"
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try{
-        const response = await fetch('/public/tasks.json')
-        const data = await response.json()
-        setTasks(data)
-      }catch(error){
-        console.error(error)
-      }
-    }
-
-    fetchData()
-  }, [])
+  const { taskList } = useGlobalContext()
 
   return <tbody className="table__body">
-    { tasks.map((task) => (
+    { taskList.map(({ member, task }) => (
       <Task 
-        firstName={task.firstName}
-        lastName={task.lastName}
-        avatar={task.avatar}
-        task={task.task}
-        priority={task.priority - 1}
+        firstName={member.firstName}
+        lastName={member.lastName}
+        avatar={member.avatar}
+        task={task.name}
+        priority={task.priority}
         key={task.id} />
     )) }
   </tbody>
