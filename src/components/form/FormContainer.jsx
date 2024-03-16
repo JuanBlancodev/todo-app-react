@@ -10,7 +10,8 @@ import '../../css/Form.css'
 const FormContainer = () => {
   const { formState } = useGlobalContext()
 
-  return <section className={classNames("container__form d-flex flex-column", { 'visible': formState.isVisible })}>
+  return <section 
+    className={classNames("container__form d-flex flex-column", { 'visible': formState.isVisible })}>
     <FormHeader />
     <Form />
     <FormFooter />

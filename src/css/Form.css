@@ -62,7 +62,7 @@
 .container__form .form__dropdown {
   width: var(--width__form__dropdown);
   position: var(--position__from_dropdown);
-  display: var(--display__form_dropdown);
+  /* display: var(--display__form_dropdown); */
   background-color: var(--bg-color__form__dropdown);
   border-radius: var(--border-radius__form_dropdown);
   padding: var(--padding__footer__form-btn);
@@ -71,10 +71,11 @@
 }
 
 .container__form .form__dropdown-btn {
-  background-color: var(--bg-color__transparent);
+  width: 100%;
   border: var(--border__form__hr);
-  cursor: pointer;
   font-family: var(--font-family__oswald);
+  text-align: left;
+  cursor: pointer;
 }
 
 .container__form .form__dropdown-btn img{
@@ -104,6 +105,7 @@
   padding: var(--padding__form__dropdown__content__dropdown__item);
   text-decoration: none;
   margin-top: var(--margin-top__form__dropdown__content__dropdown__item);
+  cursor: pointer;
 }
 
 .container__form .form__dropdown-content .dropdown-item:hover {

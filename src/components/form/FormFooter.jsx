@@ -1,14 +1,19 @@
 import useGlobalContext from "../../hooks/useGlobalContext"
 
 const FormFooter = () => {
-  const { formState, setFormState } = useGlobalContext()
+  const { cleanForm, addTaskToList } = useGlobalContext()
 
   return <footer className="footer__form d-flex flex-row-reverse align-center justify-end gap-3">
-    <button className="btn btn-primary">ADD TASK</button>
+    <button 
+      className="btn btn-primary"
+      onClick={() => addTaskToList()}
+      >
+        ADD TASK
+    </button>
     <button 
       id="btn__cancel" 
       className="btn btn-secondary"
-      onClick={() => setFormState({...formState, isVisible: false})}>
+      onClick={() => cleanForm()}>
         Cancelar
     </button>
   </footer>
