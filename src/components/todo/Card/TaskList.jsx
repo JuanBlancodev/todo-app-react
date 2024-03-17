@@ -5,11 +5,9 @@ const TaskList = () => {
   const { taskList } = useGlobalContext()
 
   return <tbody className="table__body">
-    { taskList.map(({ member, task }) => (
+    { taskList.map(({ memberId, task }) => (
       <Task 
-        firstName={member.firstName}
-        lastName={member.lastName}
-        avatar={member.avatar}
+        memberId={memberId}
         name={task.name}
         priority={task.priority}
         key={task.id} />
