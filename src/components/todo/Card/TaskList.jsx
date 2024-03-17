@@ -8,8 +8,7 @@ const TaskList = () => {
     { taskList.map(({ memberId, task }) => (
       <Task 
         memberId={memberId}
-        name={task.name}
-        priority={task.priority}
+        task={task}
         key={task.id} />
     )) }
   </tbody>

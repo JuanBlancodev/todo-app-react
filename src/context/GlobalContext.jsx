@@ -1,7 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import { ITEM_LOCAL_STORAGE } from '../config/cfg'
+import Swal from 'sweetalert2'
+import { URL_AVATAR, TODO_LOCAL_STORAGE, COMPLETE_LOCAL_STORAGE } from '../config/cfg'
 
 const GlobalContext = createContext()
 
@@ -20,10 +21,13 @@ const GlobalContextProvider = ({ children }) => {
   const [membersList, setMembers] = useState([])
   const [formState, setFormState] = useState(initialValueForm)
   const [taskList, setTaskList] = useState([])
+  const [taskCompleted, setTaskCompleted] = useState([])
 
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem(ITEM_LOCAL_STORAGE)) || []
+    const storedTasks = JSON.parse(localStorage.getItem(TODO_LOCAL_STORAGE)) || []
+    const completedList = JSON.parse(localStorage.getItem(COMPLETE_LOCAL_STORAGE)) || []
     setTaskList(storedTasks)
+    setTaskCompleted(completedList)
 
     const fetchMemebers = async () => {
       const response = await axios.get('/public/members.json')
@@ -35,6 +39,14 @@ const GlobalContextProvider = ({ children }) => {
 
   const findMemberById = (id) => membersList.find(member => member.id === id)
 
+  const selectMember = (id) => {
+    setFormState({
+      ...formState,
+      dropDownIsVisible: false,
+      memberId: id
+    })
+  }
+
   const setVisibleForm = (visible) => {
     if(visible){
       setFormState(prevState => ({...prevState, displayed: visible}))
@@ -44,14 +56,6 @@ const GlobalContextProvider = ({ children }) => {
       setFormState(prevState => ({...prevState, isVisible: visible}))
       setTimeout(() =>  setFormState(initialValueForm), 250)
     }
-  }
-
-  const selectMember = (id) => {
-    setFormState({
-      ...formState,
-      dropDownIsVisible: false,
-      memberId: id
-    })
   }
 
   const changeTaskData = (data) => {
@@ -71,6 +75,8 @@ const GlobalContextProvider = ({ children }) => {
     return map[text];
   }
 
+  const findTaskById = (id) => taskList.find(task => task.task.id === id)
+
   const addTaskToList = () => {
     if(!checkTaskReady()){
       return console.log('Faltan campos por llenar')
@@ -87,9 +93,71 @@ const GlobalContextProvider = ({ children }) => {
       const tasks = [...taskList, newTask]
       setTaskList(tasks)
       setVisibleForm(false)
-      localStorage.setItem(ITEM_LOCAL_STORAGE, JSON.stringify(tasks))
+      localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(tasks))
     }
   }
+
+  const MarkAsCompleted = (id) => {
+    const taskFound = findTaskById(id)
+    const member = findMemberById(taskFound.memberId)
+
+    const content = `
+      <div className="d-flex-flex-column gap-5">
+        <div>
+          <img src={'${URL_AVATAR}${member.avatar}'} className="img-circle" />
+        </div>
+      </div>
+    `
+
+    showHtmlAlert(content, () => console.log('Hello World'))
+
+    // const confirmCompleted = confirm(`¿Seguro que quieres marca esta tarea como completa?\n\n\
+    //   Miembro: ${member.firstName} ${member.lastName}\n\
+    //   Tarea: ${taskFound.task.name}\n\
+    //   Prioridad: ${traslatePriority(taskFound.task.priority)}`)
+
+    // if(confirmCompleted){
+    //   const taskCompletedUpdated = [...taskCompleted, taskFound]
+    //   setTaskCompleted(taskCompletedUpdated)
+    //   localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskCompletedUpdated))
+
+    //   deleteTask(id, true)
+    // }
+  }
+
+  const deleteTask = (id, force=false) => {
+    const taskFound = findTaskById(id)
+    const member = findMemberById(taskFound.memberId)
+    if(!force){
+      const confirmMessage = `¿Seguro que quieres eliminar esta tarea como completa?\n\n\
+          Miembro: ${member.firstName} ${member.lastName}\n\
+          Tarea: ${taskFound.task.name}\n\
+          Prioridad: ${traslatePriority(taskFound.task.priority)}`;
+
+      const confirmed = confirm(confirmMessage);
+      if (!confirmed) {
+          return;
+      }
+    }
+
+    const taskListUpdated = taskList.filter(task => task.task.id !== id);
+    setTaskList(taskListUpdated);
+    localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
+  }
+
+  const showHtmlAlert = (htmlContent, confirmCallback) => {
+    Swal.fire({
+      html: htmlContent,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        confirmCallback();
+      }
+    });
+  };  
 
   return <GlobalContext.Provider value={{
     membersList,
@@ -100,7 +168,9 @@ const GlobalContextProvider = ({ children }) => {
     selectMember,
     changeTaskData,
     addTaskToList,
-    traslatePriority
+    traslatePriority,
+    MarkAsCompleted,
+    deleteTask
   }}>
     { children }
   </GlobalContext.Provider>

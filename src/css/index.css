@@ -25,6 +25,8 @@
 
   --color-primary: #3b71ca;
   --color-primary-hover: #2f65bb;
+  --color-info: #2c7ac4;
+  --color-info-hover: #27639c;
   --color-success: #0cb80c;
   --color-success-hover: #259625;
   --color-danger: red;
@@ -279,6 +281,13 @@ main{
 }
 .btn-primary:hover{
   background-color: var(--color-primary-hover);
+}
+
+.btn-info{
+  background-color: var(--color-info);
+}
+.btn-info:hover{
+  background-color: var(--color-info-hover);
 }
 
 .btn-success{

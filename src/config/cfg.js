@@ -1,4 +1,5 @@
 export const URL_AVATAR             =     'https://randomuser.me/api/portraits/'
 export const URL_AVATAR_DEFAULT     =     '/assets/default.webp'
 export const THUMBNAIL              =     'thumb/'
-export const ITEM_LOCAL_STORAGE     =     'todo-app'
+export const TODO_LOCAL_STORAGE     =     'todo-list'
+export const COMPLETE_LOCAL_STORAGE =     'complete-list'

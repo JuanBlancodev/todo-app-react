@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListCheck, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faListCheck, faPlus, faList } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import useGlobalContext from '../../hooks/useGlobalContext'
 
@@ -29,7 +29,13 @@ const HeaderContainer = () => {
       <HeaderIcon icon={faListCheck} className='header-icon' />
       <h1>Lista de tareas</h1>
     </HeaderTitle>
-    <div className="header__button d-flex align-center">
+    <div className="header__button d-flex align-center gap-4">
+      <button
+        id="btn__completeList"
+        className='d-flex align-center justify-center gap-2 btn btn-info color-white font-bold'>
+          <FontAwesomeIcon icon={faList} />
+          Tareas completadas
+        </button>
       <button 
         id="btn__newTask" 
         className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold"
