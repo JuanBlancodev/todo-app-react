@@ -9,12 +9,7 @@ const initialValueForm = {
   isVisible: false,
   displayed: false,
   dropDownIsVisible: false,
-  member: {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    avatar: ''
-  },
+  memberId: 0,
   task: {
     name: '',
     priority: ''
@@ -51,11 +46,11 @@ const GlobalContextProvider = ({ children }) => {
     }
   }
 
-  const changeMemberData = (data) => {
+  const selectMember = (id) => {
     setFormState({
       ...formState,
       dropDownIsVisible: false,
-      member: {...formState.member, ...data }
+      memberId: id
     })
   }
 
@@ -67,7 +62,7 @@ const GlobalContextProvider = ({ children }) => {
   }
 
   const checkTaskReady = () => {
-    return Object.values(formState.member).every(val => val && val.length !== 0) &&
+    return formState.memberId !== 0 &&
          Object.values(formState.task).every(val => val && val.length !== 0);
   }
 
@@ -81,13 +76,13 @@ const GlobalContextProvider = ({ children }) => {
       return console.log('Faltan campos por llenar')
     }
     const { task } = formState
-    const member = findMemberById(formState.member.id)
+    const member = findMemberById(formState.memberId)
     const confirmState = confirm(`¿Estás seguro de agregar esta tarea a la lista?\n\
       Miembro: ${member.firstName} ${member.lastName}\n\
       Tarea: ${task.name}\n\
       Prioridad: ${traslatePriority(task.priority)}`)
     if(confirmState){
-      const newTask = { memberId: formState.member.id, task: { id: taskList.length + 1, ...task } }
+      const newTask = { memberId: formState.memberId, task: { id: taskList.length + 1, ...task } }
 
       const tasks = [...taskList, newTask]
       setTaskList(tasks)
@@ -102,7 +97,7 @@ const GlobalContextProvider = ({ children }) => {
     taskList, 
     setVisibleForm,
     formState, setFormState,
-    changeMemberData,
+    selectMember,
     changeTaskData,
     addTaskToList,
     traslatePriority

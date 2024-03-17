@@ -7,9 +7,9 @@ const FormDropdownButton = () => {
   const { findMemberById, formState, setFormState } = useGlobalContext()
 
   useEffect(() => {
-    const memberFound = findMemberById(formState.member.id)
+    const memberFound = findMemberById(formState.memberId)
     setMember(memberFound)
-  }, [findMemberById, formState.member.id])
+  }, [findMemberById, formState.memberId])
 
   return <button 
     className="form__dropdown form__dropdown-btn d-flex align-center gap-3"

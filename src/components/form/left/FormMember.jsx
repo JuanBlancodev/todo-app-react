@@ -7,9 +7,9 @@ const FormMember = () => {
   const { findMemberById, formState } = useGlobalContext()
 
   useEffect(() => {
-    const memberFound = findMemberById(formState.member.id)
+    const memberFound = findMemberById(formState.memberId)
     setMember(memberFound)
-  }, [findMemberById, formState.member.id])
+  }, [findMemberById, formState.memberId])
 
   return <div className="form__member d-flex align-center flex-column gap-3">
     <div className="avatar">
