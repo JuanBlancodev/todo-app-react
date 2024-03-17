@@ -1,5 +1,5 @@
 import useGlobalContext from '../../../hooks/useGlobalContext'
-import Task from "./Task"
+import Task from "./Task/Task"
 
 const TaskList = () => {
   const { taskList } = useGlobalContext()
@@ -10,7 +10,7 @@ const TaskList = () => {
         firstName={member.firstName}
         lastName={member.lastName}
         avatar={member.avatar}
-        task={task.name}
+        name={task.name}
         priority={task.priority}
         key={task.id} />
     )) }
