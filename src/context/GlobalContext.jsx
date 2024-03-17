@@ -22,7 +22,7 @@ const initialValueForm = {
 }
 
 const GlobalContextProvider = ({ children }) => {
-  const [members, setMembers] = useState([])
+  const [membersList, setMembers] = useState([])
   const [formState, setFormState] = useState(initialValueForm)
   const [taskList, setTaskList] = useState([])
 
@@ -38,7 +38,7 @@ const GlobalContextProvider = ({ children }) => {
     fetchMemebers()
   }, [])
 
-  const findMemberById = (id) => members.find(member => member.id === id)
+  const findMemberById = (id) => membersList.find(member => member.id === id)
 
   const setVisibleForm = (visible) => {
     if(visible){
@@ -97,6 +97,7 @@ const GlobalContextProvider = ({ children }) => {
   }
 
   return <GlobalContext.Provider value={{
+    membersList,
     findMemberById,
     taskList, 
     setVisibleForm,
