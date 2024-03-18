@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListCheck, faPlus, faList } from '@fortawesome/free-solid-svg-icons'
+import { faListCheck } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import useGlobalContext from '../../hooks/useGlobalContext'
+
+import TodoHeaderButtons from './TodoHeaderButtons'
 
 const Header = styled.header`
   padding: var(--padding__header);
@@ -22,28 +24,16 @@ const HeaderIcon = styled(FontAwesomeIcon)`
 `
 
 const HeaderContainer = () => {
-  const { setVisibleForm } = useGlobalContext()
+  const { displayTaskCompleted } = useGlobalContext()
 
   return <Header className="d-flex justify-between">
     <HeaderTitle className="d-flex align-center gap-3">
       <HeaderIcon icon={faListCheck} className='header-icon' />
-      <h1>Lista de tareas</h1>
+      <h1>
+        { !displayTaskCompleted ? 'Lista de tareas' : 'Tareas completadas' }
+      </h1>
     </HeaderTitle>
-    <div className="header__button d-flex align-center gap-4">
-      <button
-        id="btn__completeList"
-        className='d-flex align-center justify-center gap-2 btn btn-info color-white font-bold'>
-          <FontAwesomeIcon icon={faList} />
-          Tareas completadas
-        </button>
-      <button 
-        id="btn__newTask" 
-        className="d-flex align-center justify-center gap-1 btn btn-primary color-white font-bold"
-        onClick={() => setVisibleForm(true)}>
-          <FontAwesomeIcon icon={faPlus} />
-          Nueva tarea
-      </button>
-    </div>
+    <TodoHeaderButtons />
   </Header>
 }
 

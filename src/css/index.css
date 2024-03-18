@@ -23,6 +23,7 @@
   --button-font-weight: 200;
   --button-color: white;
 
+  --color-disabled: gray;
   --color-primary: #3b71ca;
   --color-primary-hover: #2f65bb;
   --color-info: #2c7ac4;
@@ -274,6 +275,11 @@ main{
   font-family: var(--font-family__btn);
   color: var(--button-color);
   transition: all 0.25s;
+}
+
+button[disabled]{
+  background-color: var(--color-disabled);
+  pointer-events: none;
 }
 
 .btn-primary{

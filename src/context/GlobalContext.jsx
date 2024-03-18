@@ -33,6 +33,7 @@ const GlobalContextProvider = ({ children }) => {
     },
     callback: null
   })
+  const [displayTaskCompleted, setDisplayTaskCompleted] = useState(false)
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem(TODO_LOCAL_STORAGE)) || []
@@ -86,7 +87,10 @@ const GlobalContextProvider = ({ children }) => {
     return map[text];
   }
 
-  const findTaskById = (id) => taskList.find(task => task.task.id === id)
+  const findTaskById = (id) => {
+    const tasks = displayTaskCompleted ? taskCompleted : taskList
+    return tasks.find(task => task.task.id === id)
+  }
 
   const addTaskToList = () => {
     if(!checkTaskReady()){
@@ -143,6 +147,13 @@ const GlobalContextProvider = ({ children }) => {
       localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
     }
 
+    const func_deleteTaskCompleted = () => {
+      console.log('DEBUG')
+      const taskListUpdated = taskCompleted.filter(task => task.task.id !== id);
+      setTaskCompleted(taskListUpdated);
+      localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
+    }
+
     if(!force){
       const taskFound = findTaskById(id)
       toggleModal(true)
@@ -153,14 +164,15 @@ const GlobalContextProvider = ({ children }) => {
         memberId: taskFound.memberId,
         task: taskFound.task,
         callback: () => {
-          func_deleteTask()
+          if(displayTaskCompleted){
+            func_deleteTaskCompleted()
+          } else func_deleteTask()
           toggleModal(false)
 
           showToast({ type: 'success', message: 'La tarea ha sido eliminada de la lista' })
         }
       }))
-    }
-    else func_deleteTask()
+    } else func_deleteTask()
   }
 
   const toggleModal = display => {
@@ -191,7 +203,8 @@ const GlobalContextProvider = ({ children }) => {
     <GlobalContext.Provider value={{
       membersList,
       findMemberById,
-      taskList, 
+      taskList,
+      taskCompleted,
       setVisibleForm,
       formState, setFormState,
       selectMember,
@@ -201,7 +214,8 @@ const GlobalContextProvider = ({ children }) => {
       MarkAsCompleted,
       deleteTask,
       modal,
-      toggleModal
+      toggleModal,
+      displayTaskCompleted, setDisplayTaskCompleted
     }}>
       { children }
     </GlobalContext.Provider>
