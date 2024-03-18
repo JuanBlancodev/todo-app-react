@@ -6,7 +6,7 @@ import useGlobalContext from '../../hooks/useGlobalContext'
 const ModalFooter = ({ callback }) => {
   const { toggleModal } = useGlobalContext()
 
-  return <div className="modal__footer d-flex align-center justify-end gap-3">
+  return <div className="modal__footer d-flex align-center flex-row-reverse justify-end gap-3">
     <button 
       className="d-flex align-center justify-center gap-1 btn btn-danger color-white font-bold"
       onClick={() => {toggleModal(false)}}>
