@@ -421,3 +421,11 @@ ul li{
     background: var(--scrollbar-thumb_hover);
   }
 }
+
+
+main{
+  opacity: 0;
+}
+main.visible{
+  opacity: 1;
+}
