@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import useGlobalContext from '../../../hooks/useGlobalContext'
 import { URL_AVATAR, URL_AVATAR_DEFAULT } from '../../../config/cfg'
+import MiniLoader from '../../MiniLoader'
 
 const FormMember = () => {
+  const [imgLoaded, setImgLoaded] = useState(false)
   const [member, setMember] = useState(undefined)
   const { findMemberById, formState } = useGlobalContext()
 
@@ -12,10 +14,13 @@ const FormMember = () => {
   }, [findMemberById, formState.memberId])
 
   return <div className="form__member d-flex align-center flex-column gap-3">
-    <div className="avatar">
+    <div className="avatar d-flex align-center justify-center">
+      { !imgLoaded && <MiniLoader /> }
       <img 
         src={member !== undefined ? `${URL_AVATAR}${member.avatar}` : `${URL_AVATAR_DEFAULT}`} 
-        alt="Avatar default" 
+        alt="Avatar default"
+        onLoad={() => setImgLoaded(true)}
+        style={{display: imgLoaded ? 'initial' : 'none'}}
       />
     </div>
     <span className="member-name">

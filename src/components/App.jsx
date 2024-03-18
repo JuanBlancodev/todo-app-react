@@ -15,25 +15,7 @@ const App = () => {
   const { formState: { displayed }, modal } = useGlobalContext()
 
   useEffect(() => {
-    const handledLoad = () => {
-      const images = document.querySelectorAll('img');
-      const loadImage = (image) => {
-        return new Promise((resolve, reject) => {
-          image.onload = resolve;
-          image.onerror = reject;
-        });
-      };
-      Promise.all([...images].map((image) => loadImage(image)))
-        .then(() => {
-          setLoading(false);
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-      }
-
-    window.addEventListener('load', handledLoad);
-    return () => window.removeEventListener('load', handledLoad)
+    setTimeout(() => setLoading(false), 1500)
   }, [])
 
   return <>

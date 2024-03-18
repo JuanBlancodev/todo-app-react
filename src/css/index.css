@@ -69,7 +69,7 @@
   --height__footer_form: 40px;
   --height__form__dropdown__content: 200px;
   --height__form__member: 100%;
-  --height__form__member__avatar: 110x;
+  --height__form__member__avatar: 110px;
 
   --padding__main: 50px 0;
   --padding__header: 3px 15px;
@@ -425,6 +425,7 @@ ul li{
 
 main{
   opacity: 0;
+  transition: opacity 0.25s;
 }
 main.visible{
   opacity: 1;
