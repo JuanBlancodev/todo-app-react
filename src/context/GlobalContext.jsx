@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import Swal from 'sweetalert2'
-import { URL_AVATAR, TODO_LOCAL_STORAGE, COMPLETE_LOCAL_STORAGE } from '../config/cfg'
+import { toast } from "react-toastify";
+import { TODO_LOCAL_STORAGE, COMPLETE_LOCAL_STORAGE } from '../config/cfg'
 
 const GlobalContext = createContext()
 
@@ -22,6 +22,17 @@ const GlobalContextProvider = ({ children }) => {
   const [formState, setFormState] = useState(initialValueForm)
   const [taskList, setTaskList] = useState([])
   const [taskCompleted, setTaskCompleted] = useState([])
+  const [modal, setModal] = useState({
+    isVisible: false,
+    isDisplayed: false,
+    type: '',
+    title: '',
+    task: {
+      name: '',
+      priority: ''
+    },
+    callback: null
+  })
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem(TODO_LOCAL_STORAGE)) || []
@@ -79,101 +90,122 @@ const GlobalContextProvider = ({ children }) => {
 
   const addTaskToList = () => {
     if(!checkTaskReady()){
-      return console.log('Faltan campos por llenar')
+      return showToast({ type: 'info', message: 'Faltan campos por llenar' })
     }
     const { task } = formState
-    const member = findMemberById(formState.memberId)
-    const confirmState = confirm(`¿Estás seguro de agregar esta tarea a la lista?\n\
-      Miembro: ${member.firstName} ${member.lastName}\n\
-      Tarea: ${task.name}\n\
-      Prioridad: ${traslatePriority(task.priority)}`)
-    if(confirmState){
-      const newTask = { memberId: formState.memberId, task: { id: taskList.length + 1, ...task } }
+    toggleModal(true)
+    setModal(prevState => ({
+      ...prevState,
+      type: 'info',
+      title: 'Agregar tarea a la lista',
+      memberId: formState.memberId,
+      task,
+      callback: () => {
+        const newTask = { memberId: formState.memberId, task: { id: taskList.length + 1, ...task } }
 
-      const tasks = [...taskList, newTask]
-      setTaskList(tasks)
-      setVisibleForm(false)
-      localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(tasks))
-    }
+        const tasks = [...taskList, newTask]
+        setTaskList(tasks)
+        setVisibleForm(false)
+        localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(tasks))
+
+        toggleModal(false)
+        showToast({ type: 'success', message: 'Tarea añadida a la lista' })
+      }
+    }))
   }
 
   const MarkAsCompleted = (id) => {
     const taskFound = findTaskById(id)
-    const member = findMemberById(taskFound.memberId)
 
-    const content = `
-      <div className="d-flex-flex-column gap-5">
-        <div>
-          <img src={'${URL_AVATAR}${member.avatar}'} className="img-circle" />
-        </div>
-      </div>
-    `
+    toggleModal(true)
+    setModal(prevState => ({
+      ...prevState,
+      type: 'info',
+      title: '¿Seguro que quieres marca ésta tarea como completada?',
+      memberId: taskFound.memberId,
+      task: taskFound.task,
+      callback: () => {
+        const taskCompletedUpdated = [...taskCompleted, taskFound]
+        setTaskCompleted(taskCompletedUpdated)
+        localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskCompletedUpdated))
 
-    showHtmlAlert(content, () => console.log('Hello World'))
-
-    // const confirmCompleted = confirm(`¿Seguro que quieres marca esta tarea como completa?\n\n\
-    //   Miembro: ${member.firstName} ${member.lastName}\n\
-    //   Tarea: ${taskFound.task.name}\n\
-    //   Prioridad: ${traslatePriority(taskFound.task.priority)}`)
-
-    // if(confirmCompleted){
-    //   const taskCompletedUpdated = [...taskCompleted, taskFound]
-    //   setTaskCompleted(taskCompletedUpdated)
-    //   localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskCompletedUpdated))
-
-    //   deleteTask(id, true)
-    // }
+        deleteTask(id, true)
+        showToast({ type: 'success', message: 'Tarea marcada como completada' })
+        toggleModal(false)
+      }
+    }))
   }
 
-  const deleteTask = (id, force=false) => {
-    const taskFound = findTaskById(id)
-    const member = findMemberById(taskFound.memberId)
-    if(!force){
-      const confirmMessage = `¿Seguro que quieres eliminar esta tarea como completa?\n\n\
-          Miembro: ${member.firstName} ${member.lastName}\n\
-          Tarea: ${taskFound.task.name}\n\
-          Prioridad: ${traslatePriority(taskFound.task.priority)}`;
-
-      const confirmed = confirm(confirmMessage);
-      if (!confirmed) {
-          return;
-      }
+  const deleteTask = (id, force = false) => {
+    const func_deleteTask = () => {
+      const taskListUpdated = taskList.filter(task => task.task.id !== id);
+      setTaskList(taskListUpdated);
+      localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
     }
 
-    const taskListUpdated = taskList.filter(task => task.task.id !== id);
-    setTaskList(taskListUpdated);
-    localStorage.setItem(TODO_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
+    if(!force){
+      const taskFound = findTaskById(id)
+      toggleModal(true)
+      setModal(prevState => ({
+        ...prevState,
+        type: 'danger',
+        title: '¿Estás seguro que quieres eliminar ésta tarea?',
+        memberId: taskFound.memberId,
+        task: taskFound.task,
+        callback: () => {
+          func_deleteTask()
+          toggleModal(false)
+
+          showToast({ type: 'success', message: 'La tarea ha sido eliminada de la lista' })
+        }
+      }))
+    }
+    else func_deleteTask()
   }
 
-  const showHtmlAlert = (htmlContent, confirmCallback) => {
-    Swal.fire({
-      html: htmlContent,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        confirmCallback();
-      }
-    });
-  };  
+  const toggleModal = display => {
+    if(display){
+      setModal(prevState => ({...prevState, isDisplayed: true}))
+      setTimeout(() => setModal(prevState => ({...prevState, isVisible: true})), 250)
+    }
+    else{
+      setModal(prevState => ({...prevState, isVisible: false}))
+      setTimeout(() => setModal(prevState => ({...prevState, isDisplayed: false})), 250)
+    }
+  }
 
-  return <GlobalContext.Provider value={{
-    membersList,
-    findMemberById,
-    taskList, 
-    setVisibleForm,
-    formState, setFormState,
-    selectMember,
-    changeTaskData,
-    addTaskToList,
-    traslatePriority,
-    MarkAsCompleted,
-    deleteTask
-  }}>
-    { children }
-  </GlobalContext.Provider>
+  const showToast = ({ type, message }) => {
+    toast[type](message, {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light"
+      });
+  }
+
+  return <>
+    <GlobalContext.Provider value={{
+      membersList,
+      findMemberById,
+      taskList, 
+      setVisibleForm,
+      formState, setFormState,
+      selectMember,
+      changeTaskData,
+      addTaskToList,
+      traslatePriority,
+      MarkAsCompleted,
+      deleteTask,
+      modal,
+      toggleModal
+    }}>
+      { children }
+    </GlobalContext.Provider>
+  </>
 }
 
 GlobalContextProvider.propTypes = {

@@ -27,10 +27,10 @@
   --color-primary-hover: #2f65bb;
   --color-info: #2c7ac4;
   --color-info-hover: #27639c;
-  --color-success: #0cb80c;
-  --color-success-hover: #259625;
-  --color-danger: red;
-  --color-danger-hover: #d12626;
+  --color-success: #37c737;
+  --color-success-hover: #21aa21;
+  --color-danger: #d12626;
+  --color-danger-hover: #ec3030;
 
   --color-priority-high: #dc4c64;
   --color-priority-medium: orange;
@@ -81,7 +81,7 @@
   --padding__form__section: 10px;
   --padding__form_dropdown: 10px 15px;
   --padding__form__dropdown__content__dropdown__item: 5px 16px;
-  --padding__form__member: 10px 20px;
+  --padding__form__member: 5px;
   --padding__input__field: 10px;
   --padding__btn__priority: 5px 20px;
 
@@ -323,6 +323,23 @@ main{
   color: var(--color-danger-hover);
 }
 
+/* Bg-Color */
+.bg-info{
+  background-color: var(--color-info);
+}
+
+.bg-success{
+  background-color: var(--color-success);
+}
+
+.bg-danger{
+  background-color: var(--color-danger);
+}
+
+.bg-white{
+  background-color: white;
+}
+
 /* Fonts */
 .font-bold{
   font-weight: bold;
@@ -336,6 +353,14 @@ main{
 /* Texts */
 .text-center{
   text-align: center;
+}
+
+.text-white{
+  color: white;
+}
+
+.text-black{
+  color: black;
 }
 
 /* Lists */
