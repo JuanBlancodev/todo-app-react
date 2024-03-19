@@ -1,7 +1,7 @@
 {
   "name": "todo-app-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
     "classnames": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-header-watermark": "^1.2.1",
     "react-toastify": "^10.0.5",
     "styled-components": "^6.1.8"
   },
