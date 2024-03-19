@@ -9,7 +9,7 @@ const iconType = {
 }
 
 const ModalHeader = ({ modalType, title }) => {
-  return <div className={`modal__header bg-${modalType} d-flex gap-2 align-center`}>
+  return <div className={`modal__header bg-${modalType} d-flex gap-2 align-center font-bold`}>
     <FontAwesomeIcon icon={iconType[modalType]} />
     { title }
   </div>

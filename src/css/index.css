@@ -48,8 +48,12 @@
   --position__absolute: absolute;
 
   --left__form__dropdown__content: 5px;
+  --left__modal: 50%;
 
   --top__form__dropdown__content: 45px;
+  --top__modal: 40%;
+
+  --transform__modal: translate(-50%, -50%);
 
   --width__container: 900px;
   --width__header__title: 500px;
@@ -63,6 +67,8 @@
   --width__form__member__avatar: 110px;
   --width__input__field: 300px;
   --width__scrollbar: 5px;
+
+  --max-width__modal: 600px;
 
   --height__card__tasks: 500px;
   --height__container_form: 350px;
@@ -85,6 +91,9 @@
   --padding__form__member: 5px;
   --padding__input__field: 10px;
   --padding__btn__priority: 5px 20px;
+  --pading__modal: 0;
+  --padding__modal__header: 10px;
+  --padding__modal__footer: 10px;
 
   --margin__form__hr: 0;
 
@@ -107,6 +116,7 @@
   --bg-color__btn__priority: #808080;
   --bg-color__scrollbar-thumb: #ccc;
   --bg-color__scrollbar-thumb_activate: #999;
+  --bg-color__modal__footer: #4d4d4d;
 
   --scrollbar-color: #888 #f1f1f1;
 
@@ -116,7 +126,9 @@
   --border__form__member__avatar: 3px solid #d4d2d2;
 
   --border-left__form__hr: 1px solid #ccc;
+
   --border-bottom__header__form: 1px solid #dbd8d8;
+  --border-bottom__modal__header: 1px solid #ccc;
 
   --border-radius__container: 7px;
   --border-radius__container__form: 7px;
@@ -127,10 +139,14 @@
   --border-radius__input__field: 7px;
   --border-radius__btn__priority: 10px;
   --border-radius__scrollbar-thumb: 4px;
+  --border-radius__modal: 8px;
+  --border-radius__modal__header: 8px 8px 0 0;
 
   --box-shadow__form__dropdown: 0px 4px 8px rgba(0, 0, 0, 0.1);
   --box-shadow__form_dropdown__content: 0px 8px 16px 0px rgba(0,0,0,0.2);
   --box-shadow__btn_priority: 10px 5px 10px rgba(0, 0, 0, 0.1);
+
+  --z-index__modal: 1000;
 
   --font-family: "Roboto", sans-serif;
   --font-family__oswald: "Oswald", sans-serif;
@@ -140,6 +156,7 @@
   --font-size__header__title: 23px;
   --font-size__footer__form-btn: 13px;
   --font-size__btn__priority: 15px;
+  --font-size__modal__header: 24px;
 
   --font-weight__footer__form-btn: 400;
 
