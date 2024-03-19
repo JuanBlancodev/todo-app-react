@@ -68,25 +68,25 @@ Esta es una aplicación simple de lista de tareas que te permite gestionar tus t
 
 ## Tecnologías Utilizadas
 
-<ul class="technologies">
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/128px-HTML5_logo_and_wordmark.svg.png" alt="Icon HTML" />
+<ul style="list-style:none; display: flex; gap: 15;">
+  <li style="display: flex; align-items: center; gap: 5px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/128px-HTML5_logo_and_wordmark.svg.png" width="35" alt="Icon HTML" />
     HTML
   </li>
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/128px-CSS3_logo_and_wordmark.svg.png" alt="Icon CSS" />
+  <li style="display: flex; align-items: center; gap: 5px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/128px-CSS3_logo_and_wordmark.svg.png" width="35" alt="Icon CSS" />
     CSS
   </li>
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/128px-React-icon.svg.png" alt="Icon React" />
+  <li style="display: flex; align-items: center; gap: 5px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/128px-React-icon.svg.png" width="35" alt="Icon React" />
     React
   </li>
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Yarn-logo-kitten.svg/640px-Yarn-logo-kitten.svg.png" alt="Icon Yarn" />
+  <li style="display: flex; align-items: center; gap: 5px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Yarn-logo-kitten.svg/640px-Yarn-logo-kitten.svg.png" width="35" alt="Icon Yarn" />
     Yarn
   </li>
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/640px-Vitejs-logo.svg.png" alt="Icon Vite" />
+  <li style="display: flex; align-items: center; gap: 5px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/640px-Vitejs-logo.svg.png" width="35" alt="Icon Vite" />
     Vite
   </li>
 </ul>
@@ -95,19 +95,3 @@ Esta es una aplicación simple de lista de tareas que te permite gestionar tus t
 
 - **Autor:** [JuanBlancodev](https://github.com/JuanBlancodev)<br>
 - **Repositorios en github:** [Ver](https://github.com/JuanBlancodev?tab=repositories)
-
-<style>
-  .technologies{
-    list-style: none;
-    display:flex;
-    gap:15px;
-  }
-  .technologies li{
-    display:flex;
-    align-items:center;
-    gap:5px;
-  }
-  .technologies li img{
-    width: 35px;
-  }
-</style>
