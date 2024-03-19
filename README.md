@@ -64,7 +64,7 @@ Esta es una aplicación simple de lista de tareas que te permite gestionar tus t
 
 ## Tecnologías Utilizadas
 
-<ul style="list-style:none; display: flex; gap: 15;">
+<ul style="list-style:none; display: flex; gap: 15px;font-weight: bold;">
   <li style="display: flex; align-items: center; gap: 5px;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/128px-HTML5_logo_and_wordmark.svg.png" width="35" alt="Icon HTML" />
     HTML
