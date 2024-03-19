@@ -7,7 +7,7 @@ import postcss from '@vituum/vite-plugin-postcss'
 export default defineConfig({
   plugins: [
     react(), 
-    terser(),
+    // terser(),
     postcss()
   ],
   base: 'https://juanblancodev.github.io/todo-app-react/'
