@@ -2472,10 +2472,10 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-header-watermark@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-header-watermark/-/react-header-watermark-1.2.1.tgz#a89677fb9605071dd24a05d99ec4d389d8dd9dfc"
-  integrity sha512-B0j/OpwgvjZeHZLOpgEbtdxASpKGQwFpDa5VU5x8jvqG6lY5otCyg74AgCdauxjI8FsG8ydstttQmbVRMQOHqg==
+react-header-watermark@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-header-watermark/-/react-header-watermark-1.2.2.tgz#1cf489fc85548ef3b6c769eaacf36c11149c1e8b"
+  integrity sha512-h04QAthjHJQvXlvrgGl8yejyWNygs7hawvGqTT3dgRcc9ie+Bf5In3JgkQ63tfMJs2uj972JUIADd1ZscQqaLQ==
 
 react-is@^16.13.1:
   version "16.13.1"

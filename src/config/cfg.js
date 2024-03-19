@@ -1,5 +1,5 @@
 export const PROJECT_NAME           =     "Aplicación ToDo en React"
-export const GITHUB_LINK            =     "https://github.com/JuanBlancodev?tab=repositories"
+export const GITHUB_LINK            =     "https://github.com/JuanBlancodev"
 
 export const URL_AVATAR             =     'https://randomuser.me/api/portraits/'
 export const URL_AVATAR_DEFAULT     =     'assets/default.webp'
