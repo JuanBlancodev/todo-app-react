@@ -148,7 +148,6 @@ const GlobalContextProvider = ({ children }) => {
     }
 
     const func_deleteTaskCompleted = () => {
-      console.log('DEBUG')
       const taskListUpdated = taskCompleted.filter(task => task.task.id !== id);
       setTaskCompleted(taskListUpdated);
       localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskListUpdated));
