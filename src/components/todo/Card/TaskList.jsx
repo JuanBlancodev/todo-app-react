@@ -19,7 +19,8 @@ const TaskList = () => {
       <Task 
         memberId={memberId}
         task={task}
-        key={index} />
+        key={index} 
+      />
     )) : null }
   </tbody>
 }

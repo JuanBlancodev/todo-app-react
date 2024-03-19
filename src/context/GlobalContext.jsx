@@ -133,6 +133,7 @@ const GlobalContextProvider = ({ children }) => {
       memberId: taskFound.memberId,
       task: taskFound.task,
       callback: () => {
+        taskFound.id = taskCompleted.length + 1
         const taskCompletedUpdated = [...taskCompleted, taskFound]
         setTaskCompleted(taskCompletedUpdated)
         localStorage.setItem(COMPLETE_LOCAL_STORAGE, JSON.stringify(taskCompletedUpdated))
