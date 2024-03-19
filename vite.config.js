@@ -10,4 +10,5 @@ export default defineConfig({
     terser(),
     postcss()
   ],
+  base: 'https://JuanBlancodev.github.io/todo-app-react'
 })
