@@ -63,6 +63,10 @@ Esta es una aplicación simple de lista de tareas que te permite gestionar tus t
 
 - Utiliza el local storage para almacenar las tareas por hacer y las tareas completadas.
 
+# Demo
+
+- Puedes ver una **Demo** en vivo [presionando aquí](https://juanblancodev.github.io/todo-app-react/)
+
 # Clonar el proyecto
 Si deseas trabajar en este proyecto de forma local, puedes seguir estos pasos para clonarlo en tu PC:
 
