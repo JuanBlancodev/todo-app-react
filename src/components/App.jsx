@@ -35,10 +35,11 @@ const App = () => {
 
   return <>
     { loading ? 
-      <ScreenLoader /> : 
-      <HeaderWatermark projectName={PROJECT_NAME} github={GITHUB_LINK} /> 
+      <ScreenLoader /> : <>
+        <HeaderWatermark projectName={PROJECT_NAME} github={GITHUB_LINK} />
+        { !cookieLocalStorage && <AlertLocalStorage handleCookie={handleCookie} /> }
+      </>
     }
-    { !cookieLocalStorage && <AlertLocalStorage handleCookie={handleCookie} /> }
     <main className={classNames('d-flex flex-column align-center jusfity-center', { 'visible': !loading })}>
       <ToastContainer />
       <TodoContainer />
