@@ -42,17 +42,12 @@ const GlobalContextProvider = ({ children }) => {
     setTaskCompleted(completedList)
 
     const fetchMemebers = async () => {
-<<<<<<< HEAD
-      const response = await axios.get('/members.json')
-      setMembers(response.data)
-=======
       try{
         const response = await axios.get('members.json')
         setMembers(response.data)
       }catch(error){
         console.log(error)
       }
->>>>>>> dev
     }
 
     fetchMemebers()
