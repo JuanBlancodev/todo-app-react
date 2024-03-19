@@ -40,21 +40,17 @@ Esta es una aplicación simple de lista de tareas que te permite gestionar tus t
 
 - Se muestra al realizar operaciones como agregar tarea, marcar como completada y eliminar tarea.
 
-<div style="display: flex; align-item: center; gap: 30px; width: 800px;overflow-x: auto;">
-  <img src="./screenshots/modal-new-task.png" alt="Modal nueva tarea" width="500" />
-  <img src="./screenshots/modal-confirm-task-completed.png" alt="Modal tarea completada" width="500" />
-  <img src="./screenshots/modal-delete-task.png" alt="Modal eliminar tarea" width="500" />
-</div>
+<img src="./screenshots/modal-new-task.png" alt="Modal nueva tarea" width="500" />
+<img src="./screenshots/modal-confirm-task-completed.png" alt="Modal tarea completada" width="500" />
+<img src="./screenshots/modal-delete-task.png" alt="Modal eliminar tarea" width="500" />
 
 ### Toast
 
 - Utiliza la librería `react-toastify` para mostrar notifiaciones sobre las operaciones confirmadas.
 
-<div style="display: flex; align-item: center; gap: 30px; width: 800px;overflow-x: auto;">
-  <img src="./screenshots/toast-tas-added.png" alt="Toast nueva tarea" width="500" />
-  <img src="./screenshots/toast-task-mark-as-completed.png" alt="Toast tarea completada" width="500" />
-  <img src="./screenshots/toast-task-deleted.png" alt="Toast eliminar tarea" width="500" />
-</div>
+<img src="./screenshots/toast-tas-added.png" alt="Toast nueva tarea" width="500" />
+<img src="./screenshots/toast-task-mark-as-completed.png" alt="Toast tarea completada" width="500" />
+<img src="./screenshots/toast-task-deleted.png" alt="Toast eliminar tarea" width="500" />
 
 ### Librería 'react-header-watermark'
 
