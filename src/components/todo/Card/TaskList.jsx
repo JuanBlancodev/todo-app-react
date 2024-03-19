@@ -15,12 +15,12 @@ const TaskList = () => {
   }
 
   return <tbody className="table__body">
-    { tasks.map(({ memberId, task }, index) => (
+    { tasks.length != 0 ? tasks.map(({ memberId, task }, index) => (
       <Task 
         memberId={memberId}
         task={task}
         key={index} />
-    )) }
+    )) : null }
   </tbody>
 }
 
